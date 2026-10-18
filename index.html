@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Pyjama Memory Klub | Memori Almari Baju Tidur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-pink: #FF6594;
+      --deep-pink: #D92362;
+      --soft-pink: #FFE8F0;
+      --lavender: #8B5CF6;
+      --indigo: #4F46E5;
+      --amber: #F59E0B;
+      --emerald: #10B981;
+      --text-dark: #2D3748;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow-x: hidden;
+      background-color: #FDF2F8;
+    }
+
+    body {
+      background-image: url('https://imglink.cc/cdn/1-M64l0FpY.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--text-dark);
+    }
+
+    @media (orientation: landscape) {
+      body {
+        background-image: url('https://imglink.cc/cdn/7cYA5iTDbV.jpeg');
+      }
+    }
+
+    .btn-chunky {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 1.25rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      box-shadow: 0 5px 0 rgba(0, 0, 0, 0.15), 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+    .btn-chunky:active {
+      transform: translateY(4px) !important;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), 0 3px 5px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    header {
+      width: 100%;
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 0.5rem 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 3px solid #FBCFE8;
+      border-bottom-left-radius: 1.5rem;
+      border-bottom-right-radius: 1.5rem;
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.15);
+      z-index: 40;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .brand-icon {
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 0.9rem;
+      background: linear-gradient(135deg, #FF6594, #F43F5E);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 8px rgba(244, 63, 94, 0.35);
+      border: 2px solid #FFF;
+      flex-shrink: 0;
+    }
+    .brand-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #9D174D;
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: #4F46E5;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .icon-btn {
+      width: 2.35rem;
+      height: 2.35rem;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 2px solid #E2E8F0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 3px 0 #CBD5E1;
+      padding: 0;
+    }
+    .icon-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #CBD5E1;
+    }
+
+    .lang-pill-btn {
+      background: #FFFFFF;
+      border: 2px solid #C7D2FE;
+      color: #4338CA;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.35rem 0.65rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 3px 0 #E0E7FF;
+    }
+    .lang-pill-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #E0E7FF;
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 0.5rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 20;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 2rem;
+      padding: 1.25rem 1.15rem;
+      border: 4px solid #FBCFE8;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      text-align: center;
+      width: 100%;
+      max-width: 24rem;
+    }
+
+    /* Mascot Duo Stage - Seamless Blend Without Box Borders */
+    .mascot-stage {
+      position: relative;
+      width: 100%;
+      max-width: 16rem;
+      height: 7.4rem;
+      margin: 0 auto 0.4rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+    .mascot-pedestal {
+      position: absolute;
+      bottom: 0.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 13rem;
+      height: 2rem;
+      background: radial-gradient(ellipse at center, rgba(251, 207, 232, 0.85) 0%, rgba(255, 255, 255, 0) 75%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .mascot-figure {
+      position: relative;
+      z-index: 2;
+      height: 7rem;
+      width: auto;
+      max-width: 48%;
+      object-fit: contain;
+      pointer-events: none;
+      filter: none !important;
+    }
+
+    .diff-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.45rem;
+      margin: 0.85rem 0 1.1rem;
+    }
+    .diff-choice {
+      padding: 0.55rem 0.25rem;
+      border-radius: 1rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      border: 2px solid #E2E8F0;
+      background: #FFFFFF;
+      color: #475569;
+      cursor: pointer;
+      box-shadow: 0 3px 0 #E2E8F0;
+    }
+    .diff-choice.active {
+      color: #FFFFFF;
+      border-color: #059669;
+      background: #10B981;
+      box-shadow: 0 4px 0 #047857;
+      transform: translateY(-2px);
+    }
+    .diff-choice.active.med {
+      border-color: #D97706;
+      background: #F59E0B;
+      box-shadow: 0 4px 0 #B45309;
+    }
+    .diff-choice.active.chal {
+      border-color: #E11D48;
+      background: #F43F5E;
+      box-shadow: 0 4px 0 #BE123C;
+    }
+
+    .hud-bar {
+      width: 100%;
+      max-width: 26rem;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      border-radius: 1.25rem;
+      padding: 0.4rem 0.85rem;
+      border: 2.5px solid #FBCFE8;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .hud-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .hud-stat-icon {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.65rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hud-label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: #64748B;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .hud-val {
+      font-size: 0.95rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .toast-pill {
+      min-height: 1.75rem;
+      padding: 0.2rem 0.85rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.4rem;
+      transition: opacity 0.25s ease;
+      opacity: 0;
+    }
+
+    .cards-grid-wrap {
+      width: 100%;
+      max-width: 26rem;
+      margin: 0 auto;
+      display: grid;
+      gap: 0.5rem;
+      perspective: 1200px;
+      justify-content: center;
+      align-content: center;
+    }
+    .grid-easy {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 22rem;
+    }
+    .grid-med {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 23rem;
+    }
+    .grid-chal {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      max-width: 26rem;
+    }
+    @media (min-width: 640px) {
+      .grid-med {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        max-width: 28rem;
+      }
+    }
+
+    .card-cell {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 2 / 3.05;
+    }
+
+    .wardrobe-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.48s cubic-bezier(0.34, 1.3, 0.64, 1);
+      cursor: pointer;
+    }
+    .wardrobe-card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: 1.15rem;
+      overflow: hidden;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+      border: 2px solid #FFFFFF;
+    }
+
+    .face-front {
+      background: #FFE4EE;
+      transform: rotateY(0deg);
+      z-index: 2;
+    }
+    .face-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    .face-back {
+      background: #E0E7FF;
+      transform: rotateY(180deg);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.35rem;
+    }
+    .face-back .closet-interior-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .face-back .garment-img-wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.15rem;
+      overflow: hidden;
+    }
+
+    /* Balanced proportions for shirt and trousers */
+    .garment-img {
+      object-fit: contain;
+      pointer-events: none;
+      transform-origin: center center;
+    }
+    .garment-shirt {
+      width: 86%;
+      height: 70%;
+      max-width: 88%;
+      max-height: 72%;
+      transform: scale(1.15);
+    }
+    .garment-trousers {
+      width: auto;
+      height: 70%;
+      max-width: 58%;
+      max-height: 70%;
+      transform: scale(0.85);
+    }
+
+    .card-matched {
+      animation: matchGlow 1.2s ease-in-out infinite alternate;
+    }
+    @keyframes matchGlow {
+      0% { transform: rotateY(180deg) scale(1); box-shadow: 0 0 12px 2px #FBBF24; }
+      100% { transform: rotateY(180deg) scale(1.025); box-shadow: 0 0 20px 5px #F59E0B; }
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 99;
+    }
+    .hidden {
+      display: none !important;
+    }
+
+    footer {
+      width: 100%;
+      padding: 0.4rem;
+      text-align: center;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #9D174D;
+      background: rgba(255, 255, 255, 0.55);
+      border-top: 1px solid rgba(251, 207, 232, 0.6);
+      z-index: 30;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand-group">
+      <div class="brand-icon">
+        <svg viewBox="0 0 48 48" width="30" height="30" fill="none">
+          <defs>
+            <radialGradient id="pixarWdFrame" cx="30%" cy="20%" r="80%">
+              <stop offset="0%" stop-color="#FF9EBA"/>
+              <stop offset="60%" stop-color="#F43F5E"/>
+              <stop offset="100%" stop-color="#BE123C"/>
+            </radialGradient>
+            <linearGradient id="pixarDoorL" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FFF0F5"/>
+              <stop offset="100%" stop-color="#FBCFE8"/>
+            </linearGradient>
+            <linearGradient id="pixarDoorR" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FFE4EE"/>
+              <stop offset="100%" stop-color="#F9A8D4"/>
+            </linearGradient>
+            <radialGradient id="pixarGoldKnob" cx="35%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#FEF08A"/>
+              <stop offset="50%" stop-color="#F59E0B"/>
+              <stop offset="100%" stop-color="#B45309"/>
+            </radialGradient>
+            <radialGradient id="pixarStarTop" cx="35%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#FFFBEB"/>
+              <stop offset="45%" stop-color="#FCD34D"/>
+              <stop offset="100%" stop-color="#D97706"/>
+            </radialGradient>
+            <filter id="pixarGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="1.5" stdDeviation="1" flood-color="#881337" flood-opacity="0.3"/>
+            </filter>
+          </defs>
+          <rect x="5" y="9" width="38" height="35" rx="9" fill="url(#pixarWdFrame)" filter="url(#pixarGlow)"/>
+          <path d="M12 11h24c3 0 5 1 5 2.5s-2 2.5-5 2.5H12C9 16 7 15 7 13.5S9 11 12 11z" fill="#FFF" opacity="0.35"/>
+          <rect x="8" y="14" width="15" height="26" rx="5" fill="url(#pixarDoorL)"/>
+          <rect x="10" y="16" width="11" height="10" rx="3" fill="#FFF" opacity="0.5"/>
+          <rect x="10" y="28" width="11" height="10" rx="3" fill="#F472B6" opacity="0.25"/>
+          <rect x="25" y="14" width="15" height="26" rx="5" fill="url(#pixarDoorR)"/>
+          <rect x="27" y="16" width="11" height="10" rx="3" fill="#FFF" opacity="0.5"/>
+          <rect x="27" y="28" width="11" height="10" rx="3" fill="#F472B6" opacity="0.25"/>
+          <circle cx="20.5" cy="27" r="3" fill="url(#pixarGoldKnob)"/>
+          <circle cx="19.5" cy="26" r="0.8" fill="#FFF"/>
+          <circle cx="27.5" cy="27" r="3" fill="url(#pixarGoldKnob)"/>
+          <circle cx="26.5" cy="26" r="0.8" fill="#FFF"/>
+          <polygon points="24,2 26.5,6.8 31.8,7.3 27.8,10.9 29,16 24,13.2 19,16 20.2,10.9 16.2,7.3 21.5,6.8" fill="url(#pixarStarTop)"/>
+          <circle cx="23" cy="8" r="0.8" fill="#FFF"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-title" id="txtHeaderTitle">Memori Almari Baju Tidur</div>
+        <div class="brand-sub">Kindy Klub</div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button id="btnLangToggle" class="lang-pill-btn">
+        <span id="txtLangPill">BM | English</span>
+      </button>
+
+      <button id="btnSoundToggle" class="icon-btn" aria-label="Kawal Bunyi">
+        <svg id="svgSoundOn" viewBox="0 0 32 32" width="22" height="22" fill="none">
+          <defs>
+            <radialGradient id="pixarSpkBody" cx="30%" cy="30%" r="75%">
+              <stop offset="0%" stop-color="#FDE68A"/>
+              <stop offset="55%" stop-color="#F59E0B"/>
+              <stop offset="100%" stop-color="#D97706"/>
+            </radialGradient>
+            <radialGradient id="pixarSpkCone" cx="30%" cy="30%" r="80%">
+              <stop offset="0%" stop-color="#FBCFE8"/>
+              <stop offset="70%" stop-color="#F43F5E"/>
+              <stop offset="100%" stop-color="#BE123C"/>
+            </radialGradient>
+          </defs>
+          <rect x="5" y="11" width="7" height="10" rx="3.5" fill="url(#pixarSpkBody)"/>
+          <rect x="6.5" y="12" width="2.5" height="4" rx="1" fill="#FFF" opacity="0.6"/>
+          <path d="M12 12.5L20 7.5C21.2 6.7 22.8 7.6 22.8 9.1V22.9C22.8 24.4 21.2 25.3 20 24.5L12 19.5V12.5Z" fill="url(#pixarSpkCone)"/>
+          <ellipse cx="22.5" cy="16" rx="1.5" ry="6" fill="#FFF" opacity="0.3"/>
+          <path d="M25.5 12C26.8 13.1 27.5 14.5 27.5 16C27.5 17.5 26.8 18.9 25.5 20" stroke="#F59E0B" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M28.5 9.5C30.4 11.2 31.5 13.5 31.5 16C31.5 18.5 30.4 20.8 28.5 22.5" stroke="#EC4899" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+        <svg id="svgSoundOff" class="hidden" viewBox="0 0 32 32" width="22" height="22" fill="none">
+          <defs>
+            <radialGradient id="pixarMuteBody" cx="35%" cy="30%" r="75%">
+              <stop offset="0%" stop-color="#E2E8F0"/>
+              <stop offset="70%" stop-color="#94A3B8"/>
+              <stop offset="100%" stop-color="#64748B"/>
+            </radialGradient>
+            <linearGradient id="pixarMuteSlash" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FDA4AF"/>
+              <stop offset="50%" stop-color="#F43F5E"/>
+              <stop offset="100%" stop-color="#BE123C"/>
+            </linearGradient>
+          </defs>
+          <rect x="5" y="11" width="7" height="10" rx="3.5" fill="url(#pixarMuteBody)"/>
+          <path d="M12 12.5L20 7.5C21.2 6.7 22.8 7.6 22.8 9.1V22.9C22.8 24.4 21.2 25.3 20 24.5L12 19.5V12.5Z" fill="url(#pixarMuteBody)"/>
+          <line x1="6" y1="6" x2="26" y2="26" stroke="url(#pixarMuteSlash)" stroke-width="3.2" stroke-linecap="round"/>
+          <line x1="6.5" y1="5.5" x2="25.5" y2="24.5" stroke="#FFF" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+        </svg>
+      </button>
+
+      <button id="btnProfileOpen" class="icon-btn" aria-label="Profil Pemain">
+        <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+          <defs>
+            <radialGradient id="pixarHead" cx="40%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#FFF1EE"/>
+              <stop offset="60%" stop-color="#FDC5B2"/>
+              <stop offset="100%" stop-color="#F89D82"/>
+            </radialGradient>
+            <radialGradient id="pixarCap" cx="30%" cy="30%" r="75%">
+              <stop offset="0%" stop-color="#C4B5FD"/>
+              <stop offset="60%" stop-color="#8B5CF6"/>
+              <stop offset="100%" stop-color="#6D28D9"/>
+            </radialGradient>
+            <radialGradient id="pixarPompom" cx="35%" cy="35%" r="65%">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="70%" stop-color="#FEF08A"/>
+              <stop offset="100%" stop-color="#F59E0B"/>
+            </radialGradient>
+          </defs>
+          <circle cx="16" cy="18" r="9.5" fill="url(#pixarHead)"/>
+          <ellipse cx="10.5" cy="20" rx="2" ry="1.2" fill="#FB7185" opacity="0.6"/>
+          <ellipse cx="21.5" cy="20" rx="2" ry="1.2" fill="#FB7185" opacity="0.6"/>
+          <ellipse cx="12" cy="17" rx="1.6" ry="2.2" fill="#312E81"/>
+          <circle cx="11.4" cy="16" r="0.7" fill="#FFF"/>
+          <ellipse cx="20" cy="17" rx="1.6" ry="2.2" fill="#312E81"/>
+          <circle cx="19.4" cy="16" r="0.7" fill="#FFF"/>
+          <path d="M14.2 21.5C15.2 22.6 16.8 22.6 17.8 21.5" stroke="#9A3412" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M7.5 14C8.5 7 17 5 24.5 8C27 9 28 12 25.5 14C23 15 9 16 7.5 14Z" fill="url(#pixarCap)"/>
+          <circle cx="26.5" cy="9" r="3" fill="url(#pixarPompom)"/>
+          <circle cx="25.5" cy="8" r="0.8" fill="#FFF"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div id="screenMenu" class="glass-card">
+      <!-- Duo Mascots: Girl & Boy Together on Soft Cloud Pedestal -->
+      <div class="mascot-stage">
+        <div class="mascot-pedestal"></div>
+        <img src="https://imglink.cc/cdn/ItfjcDFFN3.png" alt="Mascot Girl" class="mascot-figure" onerror="this.style.opacity='0'">
+        <img src="https://imglink.cc/cdn/8Rm9OidADE.png" alt="Mascot Boy" class="mascot-figure" onerror="this.style.opacity='0'">
+      </div>
+
+      <div id="txtMenuSubtitle" style="font-size: 0.72rem; font-weight: 800; color: #DB2777; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.15rem;">
+        Permainan Memori Prasekolah
+      </div>
+      <h1 id="txtMenuTitle" style="font-size: 1.4rem; font-weight: 800; color: #1E293B; line-height: 1.15; margin-bottom: 0.6rem;">
+        Almari Ajaib Baju Tidur
+      </h1>
+
+      <div style="width: 100%; text-align: left;">
+        <label id="txtDifficultyLabel" style="font-size: 0.7rem; font-weight: 800; color: #4338CA; text-transform: uppercase;">
+          Pilih Tahap Kesukaran:
+        </label>
+        <div class="diff-group">
+          <button type="button" class="diff-choice active" data-diff="easy" id="btnDiffEasy">
+            <div id="txtDiffEasyTitle">Mudah</div>
+            <div style="font-size: 0.6rem; opacity: 0.85;" id="txtDiffEasyDesc">3 Pasang</div>
+          </button>
+          <button type="button" class="diff-choice" data-diff="medium" id="btnDiffMed">
+            <div id="txtDiffMedTitle">Sederhana</div>
+            <div style="font-size: 0.6rem; opacity: 0.85;" id="txtDiffMedDesc">6 Pasang</div>
+          </button>
+          <button type="button" class="diff-choice" data-diff="challenge" id="btnDiffChal">
+            <div id="txtDiffChalTitle">Pintar</div>
+            <div style="font-size: 0.6rem; opacity: 0.85;" id="txtDiffChalDesc">8 Pasang</div>
+          </button>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 0.5rem; width: 100%;">
+        <button id="btnStartGame" class="btn-chunky" style="padding: 0.8rem 1rem; font-size: 1.05rem; color: #FFF; background: linear-gradient(135deg, #EC4899, #F43F5E); border: 2px solid #FFF;">
+          ✨ <span id="txtBtnStart" style="margin: 0 0.4rem;">Mula Main</span> 🚪
+        </button>
+        <button id="btnShowInstructions" class="btn-chunky" style="padding: 0.55rem 1rem; font-size: 0.8rem; color: #4338CA; background: #EEF2FF; border: 2px solid #C7D2FE;">
+          📖 <span id="txtBtnHowTo" style="margin-left: 0.35rem;">Cara Bermain</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="screenInstructions" class="glass-card hidden">
+      <div style="width: 3.5rem; height: 3.5rem; border-radius: 1rem; background: #EEF2FF; border: 2px solid #C7D2FE; margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center;">
+        <span style="font-size: 1.7rem;">📖</span>
+      </div>
+      <h2 id="txtInstTitle" style="font-size: 1.25rem; font-weight: 800; color: #4338CA; margin-bottom: 0.6rem;">Cara Bermain</h2>
+
+      <div style="display: flex; flex-direction: column; gap: 0.45rem; text-align: left; margin-bottom: 0.9rem;">
+        <div style="display: flex; align-items: center; gap: 0.55rem; background: #FDF2F8; padding: 0.45rem 0.65rem; border-radius: 0.85rem; border: 1.5px solid #FBCFE8;">
+          <div style="width: 1.5rem; height: 1.5rem; border-radius: 50%; background: #EC4899; color: #FFF; font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+          <div id="txtInst1" style="font-size: 0.72rem; font-weight: 800; color: #334155;">Tekan pintu almari untuk lihat pakaian.</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.55rem; background: #FFFBEB; padding: 0.45rem 0.65rem; border-radius: 0.85rem; border: 1.5px solid #FDE68A;">
+          <div style="width: 1.5rem; height: 1.5rem; border-radius: 50%; background: #F59E0B; color: #FFF; font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+          <div id="txtInst2" style="font-size: 0.72rem; font-weight: 800; color: #334155;">Ingat corak pakaian yang kamu nampak.</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.55rem; background: #ECFDF5; padding: 0.45rem 0.65rem; border-radius: 0.85rem; border: 1.5px solid #A7F3D0;">
+          <div style="width: 1.5rem; height: 1.5rem; border-radius: 50%; background: #10B981; color: #FFF; font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+          <div id="txtInst3" style="font-size: 0.72rem; font-weight: 800; color: #334155;">Cari baju dan seluar yang sepadan!</div>
+        </div>
+      </div>
+
+      <button id="btnInstPlayNow" class="btn-chunky" style="width: 100%; padding: 0.75rem; color: #FFF; background: linear-gradient(135deg, #6366F1, #8B5CF6); border: 2px solid #FFF; font-size: 0.95rem;">
+        <span id="txtBtnInstPlay">Faham & Mula!</span>
+      </button>
+    </div>
+
+    <div id="screenGameplay" class="hidden" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <div class="hud-bar">
+        <div class="hud-stat">
+          <div class="hud-stat-icon" style="background: #FCE7F3;">
+            <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+              <defs>
+                <radialGradient id="pixarShirt" cx="30%" cy="25%" r="80%">
+                  <stop offset="0%" stop-color="#FDA4AF"/>
+                  <stop offset="55%" stop-color="#F43F5E"/>
+                  <stop offset="100%" stop-color="#BE123C"/>
+                </radialGradient>
+                <linearGradient id="pixarCollar" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FFFFFF"/>
+                  <stop offset="100%" stop-color="#FCE7F3"/>
+                </linearGradient>
+                <radialGradient id="pixarShirtBtn" cx="35%" cy="30%" r="70%">
+                  <stop offset="0%" stop-color="#FEF08A"/>
+                  <stop offset="60%" stop-color="#F59E0B"/>
+                  <stop offset="100%" stop-color="#B45309"/>
+                </radialGradient>
+              </defs>
+              <path d="M11 6.5L4.5 11.2C3.8 11.7 3.7 12.8 4.2 13.5L6.5 16.5C7 17.2 8.1 17.3 8.8 16.7L10.5 15.2V25.5C10.5 26.9 11.6 28 13 28H19C20.4 28 21.5 26.9 21.5 25.5V15.2L23.2 16.7C23.9 17.3 25 17.2 25.5 16.5L27.8 13.5C28.3 12.8 28.2 11.7 27.5 11.2L21 6.5C19.5 7.8 17.8 8.5 16 8.5C14.2 8.5 12.5 7.8 11 6.5Z" fill="url(#pixarShirt)"/>
+              <path d="M12 6.5C13.5 10 16 10.2 16 10.2C16 10.2 18.5 10 20 6.5C18.2 7.7 13.8 7.7 12 6.5Z" fill="url(#pixarCollar)"/>
+              <circle cx="16" cy="13.5" r="1.4" fill="url(#pixarShirtBtn)"/>
+              <circle cx="15.6" cy="13" r="0.4" fill="#FFF"/>
+              <circle cx="16" cy="18.5" r="1.4" fill="url(#pixarShirtBtn)"/>
+              <circle cx="15.6" cy="18" r="0.4" fill="#FFF"/>
+              <circle cx="16" cy="23.5" r="1.4" fill="url(#pixarShirtBtn)"/>
+              <circle cx="15.6" cy="23" r="0.4" fill="#FFF"/>
+            </svg>
+          </div>
+          <div>
+            <div class="hud-label" id="txtHudMatches">Pasangan</div>
+            <div class="hud-val" id="valHudMatches" style="color: #DB2777;">0 / 3</div>
+          </div>
+        </div>
+
+        <div class="hud-stat">
+          <div class="hud-stat-icon" style="background: #FEF3C7;">
+            <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+              <defs>
+                <radialGradient id="pixarStarBody" cx="35%" cy="30%" r="75%">
+                  <stop offset="0%" stop-color="#FFFBEB"/>
+                  <stop offset="40%" stop-color="#FCD34D"/>
+                  <stop offset="80%" stop-color="#F59E0B"/>
+                  <stop offset="100%" stop-color="#D97706"/>
+                </radialGradient>
+              </defs>
+              <path d="M16 3.2C16.5 3.2 17 3.5 17.3 4.1L19.8 9.8C20.1 10.4 20.7 10.8 21.3 10.9L27.5 11.5C28.2 11.6 28.7 12.2 28.7 12.8C28.7 13.2 28.5 13.6 28.2 13.9L23.4 18C22.9 18.4 22.7 19.1 22.9 19.7L24.3 25.8C24.5 26.5 24 27.2 23.3 27.3C22.9 27.3 22.5 27.2 22.2 26.9L17 23.8C16.4 23.5 15.6 23.5 15 23.8L9.8 26.9C9.2 27.3 8.4 27.1 8 26.4C7.8 26.1 7.7 25.7 7.9 25.4L9.3 19.3C9.4 18.7 9.2 18 8.8 17.6L4 13.5C3.5 13 3.4 12.2 3.9 11.7C4.1 11.4 4.5 11.2 4.9 11.2L11.1 10.6C11.7 10.5 12.3 10.1 12.6 9.5L15.1 3.8C15.3 3.4 15.6 3.2 16 3.2Z" fill="url(#pixarStarBody)"/>
+              <ellipse cx="11.5" cy="17.2" rx="1.6" ry="1" fill="#F43F5E" opacity="0.6"/>
+              <ellipse cx="20.5" cy="17.2" rx="1.6" ry="1" fill="#F43F5E" opacity="0.6"/>
+              <ellipse cx="12.8" cy="14.8" rx="1.3" ry="1.8" fill="#78350F"/>
+              <circle cx="12.3" cy="14.1" r="0.6" fill="#FFF"/>
+              <ellipse cx="19.2" cy="14.8" rx="1.3" ry="1.8" fill="#78350F"/>
+              <circle cx="18.7" cy="14.1" r="0.6" fill="#FFF"/>
+              <path d="M14.4 17.8C15.2 18.7 16.8 18.7 17.6 17.8" stroke="#92400E" stroke-width="1.3" stroke-linecap="round"/>
+              <ellipse cx="16" cy="7" rx="1.6" ry="2.2" fill="#FFF" opacity="0.45"/>
+            </svg>
+          </div>
+          <div>
+            <div class="hud-label" id="txtHudMoves">Cubaan</div>
+            <div class="hud-val" id="valHudMoves" style="color: #D97706;">0</div>
+          </div>
+        </div>
+
+        <button id="btnPauseGame" class="btn-chunky" style="padding: 0.35rem 0.65rem; font-size: 0.72rem; color: #334155; background: #F1F5F9; border: 1.5px solid #CBD5E1;">
+          ⏸️ <span id="txtBtnPause" style="margin-left: 0.2rem;">Rehat</span>
+        </button>
+      </div>
+
+      <div id="toastBanner" class="toast-pill"></div>
+
+      <div id="cardsGridContainer" class="cards-grid-wrap grid-easy"></div>
+    </div>
+  </main>
+
+  <div id="modalPause" class="modal-overlay hidden">
+    <div class="glass-card" style="max-width: 19rem;">
+      <div style="font-size: 2.2rem; margin-bottom: 0.3rem;">🛌</div>
+      <h3 id="txtPauseTitle" style="font-size: 1.25rem; font-weight: 800; color: #1E293B; margin-bottom: 0.2rem;">Permainan Direhatkan</h3>
+      <p id="txtPauseSub" style="font-size: 0.72rem; font-weight: 700; color: #64748B; margin-bottom: 0.85rem;">Berehat sekejap sebelum sambung!</p>
+
+      <div style="display: flex; flex-direction: column; gap: 0.45rem;">
+        <button id="btnResumeGame" class="btn-chunky" style="padding: 0.65rem; color: #FFF; background: #10B981; border: 2px solid #FFF; font-size: 0.85rem;">
+          ▶️ <span id="txtBtnResume">Sambung Main</span>
+        </button>
+        <button id="btnRestartRound" class="btn-chunky" style="padding: 0.55rem; color: #92400E; background: #FEF3C7; border: 1.5px solid #FDE68A; font-size: 0.75rem;">
+          🔄 <span id="txtBtnRestart">Main Semula</span>
+        </button>
+        <button id="btnQuitToMenu" class="btn-chunky" style="padding: 0.55rem; color: #475569; background: #F1F5F9; border: 1.5px solid #CBD5E1; font-size: 0.75rem;">
+          🏠 <span id="txtBtnQuit">Menu Utama</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalVictory" class="modal-overlay hidden">
+    <div class="glass-card" style="max-width: 21rem; border-color: #FCD34D;">
+      <!-- Both Mascots Celebrating Together on Victory Screen -->
+      <div class="mascot-stage" style="height: 5.5rem; margin-bottom: 0.2rem;">
+        <div class="mascot-pedestal" style="width: 10rem; height: 1.5rem;"></div>
+        <img src="https://imglink.cc/cdn/ItfjcDFFN3.png" alt="Mascot Girl" class="mascot-figure" style="height: 5.2rem;">
+        <div style="font-size: 2.2rem; z-index: 3; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));">🏆</div>
+        <img src="https://imglink.cc/cdn/8Rm9OidADE.png" alt="Mascot Boy" class="mascot-figure" style="height: 5.2rem;">
+      </div>
+
+      <h3 id="txtVicTitle" style="font-size: 1.35rem; font-weight: 800; color: #DB2777; margin-bottom: 0.2rem;">Tahniah! Hebatnya!</h3>
+      <p id="txtVicDesc" style="font-size: 0.75rem; font-weight: 700; color: #475569; margin-bottom: 0.75rem;">Kamu berjaya memadankan semua pakaian baju tidur!</p>
+
+      <div style="display: flex; justify-content: space-around; background: #FFFBEB; border: 1.5px solid #FDE68A; border-radius: 1rem; padding: 0.45rem; margin-bottom: 0.85rem;">
+        <div>
+          <div style="font-size: 0.62rem; font-weight: 800; color: #B45309; text-transform: uppercase;" id="txtVicMoves">Jumlah Cubaan</div>
+          <div id="valVicMoves" style="font-size: 1.1rem; font-weight: 800; color: #D97706;">6</div>
+        </div>
+        <div style="border-right: 1px solid #FDE68A;"></div>
+        <div>
+          <div style="font-size: 0.62rem; font-weight: 800; color: #B45309; text-transform: uppercase;" id="txtVicStars">Bintang</div>
+          <div style="font-size: 1.1rem;">⭐⭐⭐</div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 0.45rem;">
+        <button id="btnVicPlayAgain" class="btn-chunky" style="padding: 0.75rem; color: #FFF; background: linear-gradient(135deg, #EC4899, #F43F5E); border: 2px solid #FFF; font-size: 0.9rem;">
+          🎉 <span id="txtBtnVicPlayAgain">Main Lagi</span>
+        </button>
+        <button id="btnVicHome" class="btn-chunky" style="padding: 0.55rem; color: #4338CA; background: #EEF2FF; border: 1.5px solid #C7D2FE; font-size: 0.75rem;">
+          🏠 <span id="txtBtnVicHome">Menu Utama</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalProfile" class="modal-overlay hidden">
+    <div class="glass-card" style="max-width: 19rem; border-color: #DDD6FE;">
+      <h3 id="txtProfileTitle" style="font-size: 1.25rem; font-weight: 800; color: #6D28D9; margin-bottom: 0.75rem;">Profil Pemain</h3>
+
+      <div style="display: flex; flex-direction: column; gap: 0.55rem; text-align: left; margin-bottom: 0.85rem;">
+        <div>
+          <label id="txtLblPlayerName" style="font-size: 0.68rem; font-weight: 800; color: #64748B;">Nama Pemain</label>
+          <input type="text" id="inputPlayerName" maxlength="15" placeholder="Bintang Kecil" style="width: 100%; padding: 0.45rem 0.65rem; border-radius: 0.75rem; border: 1.5px solid #DDD6FE; font-weight: 700; font-size: 0.85rem; outline: none; margin-top: 0.15rem;">
+        </div>
+        <div>
+          <label id="txtLblFamilyCode" style="font-size: 0.68rem; font-weight: 800; color: #64748B;">Kod Keluarga (Pilihan)</label>
+          <input type="text" id="inputFamilyCode" placeholder="" style="width: 100%; padding: 0.45rem 0.65rem; border-radius: 0.75rem; border: 1.5px solid #E2E8F0; font-weight: 700; font-size: 0.85rem; outline: none; margin-top: 0.15rem;">
+        </div>
+        <div style="background: #F5F3FF; border: 1px solid #DDD6FE; padding: 0.45rem 0.65rem; border-radius: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+          <span id="txtLblRoundsPlayed" style="font-size: 0.72rem; font-weight: 800; color: #6D28D9;">Pusingan Selesai:</span>
+          <span id="valRoundsPlayed" style="font-size: 0.85rem; font-weight: 800; color: #4C1D95;">0</span>
+        </div>
+      </div>
+
+      <button id="btnSaveProfile" class="btn-chunky" style="width: 100%; padding: 0.65rem; color: #FFF; background: #7C3AED; border: 2px solid #FFF; font-size: 0.85rem;">
+        <span id="txtBtnSaveProfile">Simpan & Tutup</span>
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    Kinder Klub | All Rights Reserved
+  </footer>
+
+  <script>
+    const ASSETS = {
+      cardDoorFront: 'https://imglink.cc/cdn/3h6S0egk0u.png',
+      cardDoorInside: 'https://imglink.cc/cdn/BSiy5WGFg7.png',
+      girlMascot: 'https://imglink.cc/cdn/ItfjcDFFN3.png',
+      boyMascot: 'https://imglink.cc/cdn/8Rm9OidADE.png',
+      bedroomPortrait: 'https://imglink.cc/cdn/1-M64l0FpY.jpeg',
+      bedroomLandscape: 'https://imglink.cc/cdn/7cYA5iTDbV.jpeg',
+      designs: [
+        { id: '01', name: 'Pink Rainbow Stripes', shirtUrl: 'https://imglink.cc/cdn/NDIwqip8JQ.png', trousersUrl: 'https://imglink.cc/cdn/gzjAtDh2Xw.png' },
+        { id: '02', name: 'Blue Star Stripes', shirtUrl: 'https://imglink.cc/cdn/dcQRnbyD7h.png', trousersUrl: 'https://imglink.cc/cdn/N8wbFMQJo8.png' },
+        { id: '03', name: 'Lavender Flower Garden', shirtUrl: 'https://imglink.cc/cdn/gS4iuv1Fop.png', trousersUrl: 'https://imglink.cc/cdn/lD6eZCKmSa.png' },
+        { id: '04', name: 'Sunshine Yellow Daisies', shirtUrl: 'https://imglink.cc/cdn/YChyQJnW9n.png', trousersUrl: 'https://imglink.cc/cdn/dK9HeI_wqW.png' },
+        { id: '05', name: 'Robot Adventure', shirtUrl: 'https://imglink.cc/cdn/Ubt5qL_kXq.png', trousersUrl: 'https://imglink.cc/cdn/43tlhc4cOy.png' },
+        { id: '06', name: 'Moon and Stars', shirtUrl: 'https://imglink.cc/cdn/iKl9MN6rav.png', trousersUrl: 'https://imglink.cc/cdn/elnrRyQfQU.png' },
+        { id: '07', name: 'Peachy Hearts', shirtUrl: 'https://imglink.cc/cdn/vwgqFSfX4R.png', trousersUrl: 'https://imglink.cc/cdn/a7V2bPypyZ.png' },
+        { id: '08', name: 'Mint Fox Friends', shirtUrl: 'https://imglink.cc/cdn/IJipXcqrKt.png', trousersUrl: 'https://imglink.cc/cdn/jLfyhuln7w.png' },
+        { id: '09', name: 'Purple Polka Dots', shirtUrl: 'https://imglink.cc/cdn/FSppNAMpA_.png', trousersUrl: 'https://imglink.cc/cdn/JxzcGXZJJY.png' },
+        { id: '10', name: 'Orange Dinosaur Pals', shirtUrl: 'https://imglink.cc/cdn/cj-ZAbBMOX.png', trousersUrl: 'https://imglink.cc/cdn/Z3YVEnIg9a.png' },
+        { id: '11', name: 'Rainbow Clouds', shirtUrl: 'https://imglink.cc/cdn/rDxqNt_E1a.png', trousersUrl: 'https://imglink.cc/cdn/22ayxhY1p5.png' },
+        { id: '12', name: 'Strawberry Sweetheart', shirtUrl: 'https://imglink.cc/cdn/KQ2e9G5kYF.png', trousersUrl: 'https://imglink.cc/cdn/8-JGUDEXid.png' },
+        { id: '13', name: 'Space Explorer', shirtUrl: 'https://imglink.cc/cdn/4_TwsjgP5z.png', trousersUrl: 'https://imglink.cc/cdn/N8kClAgYhY.png' },
+        { id: '14', name: 'Mint Candy Stripes', shirtUrl: 'https://imglink.cc/cdn/izSChwRDJq.png', trousersUrl: 'https://imglink.cc/cdn/IX-puvKVhZ.png' },
+        { id: '15', name: 'Purple Butterfly Garden', shirtUrl: 'https://imglink.cc/cdn/8cl8DH_-hI.png', trousersUrl: 'https://imglink.cc/cdn/u5q2ZR1fNh.png' },
+        { id: '16', name: 'Coral Heart Stripes', shirtUrl: 'https://imglink.cc/cdn/1X-2MosfXW.png', trousersUrl: 'https://imglink.cc/cdn/s-nvsNjckU.png' },
+        { id: '17', name: 'Sleepy Kittens', shirtUrl: 'https://imglink.cc/cdn/pdeWIF51GQ.png', trousersUrl: 'https://imglink.cc/cdn/cOP7Op9lR7.png' },
+        { id: '18', name: 'Ocean Friends', shirtUrl: 'https://imglink.cc/cdn/co_BaCszb-.png', trousersUrl: 'https://imglink.cc/cdn/sGil9l8r6Q.png' },
+        { id: '19', name: 'Candy Polka-Dot Stripes', shirtUrl: 'https://imglink.cc/cdn/wSOD56MULE.png', trousersUrl: 'https://imglink.cc/cdn/zWWVBjUNYa.png' },
+        { id: '20', name: 'Dreamy Unicorn Stars', shirtUrl: 'https://imglink.cc/cdn/RzKEBioRri.png', trousersUrl: 'https://imglink.cc/cdn/VyC3vnZ1_X.png' },
+        { id: '21', name: 'Rainbow Explosion', shirtUrl: 'https://imglink.cc/cdn/6q3K-5heF1.png', trousersUrl: 'https://imglink.cc/cdn/nBy33gYRDA.png' },
+        { id: '22', name: 'Safari Party', shirtUrl: 'https://imglink.cc/cdn/1oHCR3w-Qa.png', trousersUrl: 'https://imglink.cc/cdn/rhGu1Gpxj4.png' },
+        { id: '23', name: 'Happy Blob Universe', shirtUrl: 'https://imglink.cc/cdn/InxWpwcC3N.png', trousersUrl: 'https://imglink.cc/cdn/fnRm3etxDF.png' },
+        { id: '24', name: 'Doodle Mania', shirtUrl: 'https://imglink.cc/cdn/yZUzRavsEm.png', trousersUrl: 'https://imglink.cc/cdn/C1QOJwJdlc.png' },
+        { id: '25', name: 'Dino Jungle Expedition', shirtUrl: 'https://imglink.cc/cdn/iKvZNKtQ2r.png', trousersUrl: 'https://imglink.cc/cdn/olB3ATS7Rr.png' },
+        { id: '26', name: 'Fruity Pop Picnic', shirtUrl: 'https://imglink.cc/cdn/x-AMR-HBGZ.png', trousersUrl: 'https://imglink.cc/cdn/dDCIU4zShs.png' },
+        { id: '27', name: 'Candy Carnival', shirtUrl: 'https://imglink.cc/cdn/U4gTBlYpE3.png', trousersUrl: 'https://imglink.cc/cdn/9Hvv5O04Pl.png' },
+        { id: '28', name: 'Chocolate Dreamland', shirtUrl: 'https://imglink.cc/cdn/Xdgum5WyL3.png', trousersUrl: 'https://imglink.cc/cdn/6TshQ1KvpK.png' },
+        { id: '29', name: 'Planet Pop Galaxy', shirtUrl: 'https://imglink.cc/cdn/tSqFf7Xi_9.png', trousersUrl: 'https://imglink.cc/cdn/Yrv8FAkcWT.png' },
+        { id: '30', name: 'Underwater Disco', shirtUrl: 'https://imglink.cc/cdn/6zn-51PPj5.png', trousersUrl: 'https://imglink.cc/cdn/Z2w8mkPFOO.png' },
+        { id: '31', name: 'Animal Face Party', shirtUrl: 'https://imglink.cc/cdn/_F8zfPCKER.png', trousersUrl: 'https://imglink.cc/cdn/92brFf44pA.png' },
+        { id: '32', name: 'Groovy Flower Power', shirtUrl: 'https://imglink.cc/cdn/IalAIZlRZN.png', trousersUrl: 'https://imglink.cc/cdn/LBvITaUZip.png' },
+        { id: '33', name: 'Turbo Racer', shirtUrl: 'https://imglink.cc/cdn/ytgJHUlPBJ.png', trousersUrl: 'https://imglink.cc/cdn/EyNLxSUfvl.png' },
+        { id: '34', name: 'Shape Shifter', shirtUrl: 'https://imglink.cc/cdn/r2MlMRH5mI.png', trousersUrl: 'https://imglink.cc/cdn/Fmr4D3fDMd.png' },
+        { id: '35', name: 'Little Bakery Club', shirtUrl: 'https://imglink.cc/cdn/jhKdqQWMPB.png', trousersUrl: 'https://imglink.cc/cdn/FIf8ljLZXy.png' },
+        { id: '36', name: 'Tropical Jungle Jam', shirtUrl: 'https://imglink.cc/cdn/RtwoaRsZqk.png', trousersUrl: 'https://imglink.cc/cdn/1ldP8hZ-cz.png' },
+        { id: '37', name: 'Happy Weather Club', shirtUrl: 'https://imglink.cc/cdn/YQsikX8iDY.png', trousersUrl: 'https://imglink.cc/cdn/5mbEcO9bxi.png' },
+        { id: '38', name: 'Tiny Garden World', shirtUrl: 'https://imglink.cc/cdn/FwHsl1NZ_Z.png', trousersUrl: 'https://imglink.cc/cdn/8U8BUTCW8t.png' },
+        { id: '39', name: 'Ice Cream Pop', shirtUrl: 'https://imglink.cc/cdn/C_VjPA-NLX.png', trousersUrl: 'https://imglink.cc/cdn/io4LgPdsZM.png' },
+        { id: '40', name: 'Monster Mash', shirtUrl: 'https://imglink.cc/cdn/RpkLjGBc5W.png', trousersUrl: 'https://imglink.cc/cdn/vmKoi_xdop.png' }
+      ]
+    };
+
+    const I18N = {
+      bm: {
+        headerTitle: 'Memori Almari Baju Tidur',
+        menuSubtitle: 'Permainan Memori Prasekolah',
+        menuTitle: 'Almari Ajaib Baju Tidur',
+        diffLabel: 'Pilih Tahap Kesukaran:',
+        diffEasy: 'Mudah',
+        diffEasyDesc: '3 Pasang',
+        diffMed: 'Sederhana',
+        diffMedDesc: '6 Pasang',
+        diffChal: 'Pintar',
+        diffChalDesc: '8 Pasang',
+        btnStart: 'Mula Main',
+        btnHowTo: 'Cara Bermain',
+        instTitle: 'Cara Bermain',
+        inst1: 'Tekan pintu almari untuk lihat pakaian.',
+        inst2: 'Ingat corak pakaian yang kamu nampak.',
+        inst3: 'Cari baju dan seluar yang sepadan!',
+        btnInstPlay: 'Faham & Mula!',
+        hudMatches: 'Pasangan',
+        hudMoves: 'Cubaan',
+        btnPause: 'Rehat',
+        pauseTitle: 'Permainan Direhatkan',
+        pauseSub: 'Berehat sekejap sebelum sambung!',
+        btnResume: 'Sambung Main',
+        btnRestart: 'Main Semula',
+        btnQuit: 'Menu Utama',
+        vicTitle: 'Tahniah! Hebatnya!',
+        vicDesc: 'Kamu berjaya memadankan semua pakaian baju tidur!',
+        vicMoves: 'Jumlah Cubaan',
+        vicStars: 'Bintang',
+        btnVicPlayAgain: 'Main Lagi',
+        btnVicHome: 'Menu Utama',
+        profileTitle: 'Profil Pemain',
+        lblName: 'Nama Pemain',
+        lblFamily: 'Kod Keluarga (Pilihan)',
+        lblRounds: 'Pusingan Selesai:',
+        btnSave: 'Simpan & Tutup',
+        feedbackPos: ['Bagus! Pasangan sepadan!', 'Wah, pandainya!', 'Hebat! Secocok sekali!'],
+        feedbackNeg: ['Cuba lagi ya!', 'Corak berbeza, ingat tempatnya!']
+      },
+      en: {
+        headerTitle: 'Pyjama Memory Klub',
+        menuSubtitle: 'Preschool Memory Game',
+        menuTitle: 'Magical Pyjama Wardrobe',
+        diffLabel: 'Select Difficulty:',
+        diffEasy: 'Easy',
+        diffEasyDesc: '3 Pairs',
+        diffMed: 'Medium',
+        diffMedDesc: '6 Pairs',
+        diffChal: 'Challenge',
+        diffChalDesc: '8 Pairs',
+        btnStart: 'Start Game',
+        btnHowTo: 'How to Play',
+        instTitle: 'How to Play',
+        inst1: 'Tap a wardrobe door to see the clothing.',
+        inst2: 'Remember the designs you see.',
+        inst3: 'Find the matching shirt and trousers!',
+        btnInstPlay: 'Got it & Play!',
+        hudMatches: 'Matches',
+        hudMoves: 'Attempts',
+        btnPause: 'Pause',
+        pauseTitle: 'Game Paused',
+        pauseSub: 'Take a short break before continuing!',
+        btnResume: 'Resume Game',
+        btnRestart: 'Restart Round',
+        btnQuit: 'Main Menu',
+        vicTitle: 'Awesome! Fantastic!',
+        vicDesc: 'You matched every lovely pyjama outfit!',
+        vicMoves: 'Total Attempts',
+        vicStars: 'Stars',
+        btnVicPlayAgain: 'Play Again',
+        btnVicHome: 'Main Menu',
+        profileTitle: 'Player Profile',
+        lblName: 'Player Name',
+        lblFamily: 'Family Code (Optional)',
+        lblRounds: 'Rounds Completed:',
+        btnSave: 'Save & Close',
+        feedbackPos: ['Great! A matching pair!', 'Wonderful memory!', 'Fantastic match!'],
+        feedbackNeg: ['Try again!', 'Keep looking for its match!']
+      }
+    };
+
+    class AudioEngine {
+      constructor() {
+        this.ctx = null;
+        this.enabled = true;
+      }
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) this.ctx = new AudioContext();
+        }
+        if (this.ctx && this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+      }
+      playDoor() {
+        if (!this.enabled) return;
+        this.init();
+        if (!this.ctx) return;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(200, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(340, this.ctx.currentTime + 0.15);
+        gain.gain.setValueAtTime(0.2, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.18);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.18);
+      }
+      playMatch() {
+        if (!this.enabled) return;
+        this.init();
+        if (!this.ctx) return;
+        const notes = [523.25, 659.25, 783.99, 1046.50];
+        notes.forEach((freq, idx) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, this.ctx.currentTime + idx * 0.08);
+          gain.gain.setValueAtTime(0.2, this.ctx.currentTime + idx * 0.08);
+          gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + idx * 0.08 + 0.35);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(this.ctx.currentTime + idx * 0.08);
+          osc.stop(this.ctx.currentTime + idx * 0.08 + 0.35);
+        });
+      }
+      playMismatch() {
+        if (!this.enabled) return;
+        this.init();
+        if (!this.ctx) return;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(250, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(170, this.ctx.currentTime + 0.2);
+        gain.gain.setValueAtTime(0.18, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.22);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.22);
+      }
+      playVictory() {
+        if (!this.enabled) return;
+        this.init();
+        if (!this.ctx) return;
+        const fanfare = [392, 523.25, 659.25, 783.99, 1046.50];
+        fanfare.forEach((f, i) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(f, this.ctx.currentTime + i * 0.12);
+          gain.gain.setValueAtTime(0.25, this.ctx.currentTime + i * 0.12);
+          gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + i * 0.12 + 0.45);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(this.ctx.currentTime + i * 0.12);
+          osc.stop(this.ctx.currentTime + i * 0.12 + 0.45);
+        });
+      }
+    }
+
+    const sound = new AudioEngine();
+
+    const STATE = {
+      lang: 'bm',
+      difficulty: 'easy',
+      soundEnabled: true,
+      playerName: '',
+      familyCode: '',
+      roundsCompleted: 0,
+      cards: [],
+      revealed: [],
+      matchedCount: 0,
+      totalPairs: 3,
+      attempts: 0,
+      isLocked: false,
+      isPaused: false
+    };
+
+    try {
+      if (localStorage.getItem('pjk_lang')) STATE.lang = localStorage.getItem('pjk_lang');
+      if (localStorage.getItem('pjk_diff')) STATE.difficulty = localStorage.getItem('pjk_diff');
+      if (localStorage.getItem('pjk_snd') !== null) STATE.soundEnabled = localStorage.getItem('pjk_snd') === 'true';
+      if (localStorage.getItem('pjk_name')) STATE.playerName = localStorage.getItem('pjk_name');
+      if (localStorage.getItem('pjk_fam')) STATE.familyCode = localStorage.getItem('pjk_fam');
+      if (localStorage.getItem('pjk_rounds')) STATE.roundsCompleted = parseInt(localStorage.getItem('pjk_rounds'), 10) || 0;
+    } catch(e) {}
+    sound.enabled = STATE.soundEnabled;
+
+    const $ = id => document.getElementById(id);
+    const UI = {
+      screenMenu: $('screenMenu'),
+      screenInstructions: $('screenInstructions'),
+      screenGameplay: $('screenGameplay'),
+      modalPause: $('modalPause'),
+      modalVictory: $('modalVictory'),
+      modalProfile: $('modalProfile'),
+      cardsContainer: $('cardsGridContainer'),
+      toastBanner: $('toastBanner'),
+      
+      txtHeaderTitle: $('txtHeaderTitle'),
+      btnLangToggle: $('btnLangToggle'),
+      txtLangPill: $('txtLangPill'),
+      btnSoundToggle: $('btnSoundToggle'),
+      svgSoundOn: $('svgSoundOn'),
+      svgSoundOff: $('svgSoundOff'),
+      btnProfileOpen: $('btnProfileOpen'),
+
+      txtMenuSubtitle: $('txtMenuSubtitle'),
+      txtMenuTitle: $('txtMenuTitle'),
+      txtDifficultyLabel: $('txtDifficultyLabel'),
+      diffButtons: document.querySelectorAll('.diff-choice'),
+      txtDiffEasyTitle: $('txtDiffEasyTitle'),
+      txtDiffEasyDesc: $('txtDiffEasyDesc'),
+      txtDiffMedTitle: $('txtDiffMedTitle'),
+      txtDiffMedDesc: $('txtDiffMedDesc'),
+      txtDiffChalTitle: $('txtDiffChalTitle'),
+      txtDiffChalDesc: $('txtDiffChalDesc'),
+      btnStartGame: $('btnStartGame'),
+      txtBtnStart: $('txtBtnStart'),
+      btnShowInstructions: $('btnShowInstructions'),
+      txtBtnHowTo: $('txtBtnHowTo'),
+
+      txtInstTitle: $('txtInstTitle'),
+      txtInst1: $('txtInst1'),
+      txtInst2: $('txtInst2'),
+      txtInst3: $('txtInst3'),
+      btnInstPlayNow: $('btnInstPlayNow'),
+      txtBtnInstPlay: $('txtBtnInstPlay'),
+
+      txtHudMatches: $('txtHudMatches'),
+      valHudMatches: $('valHudMatches'),
+      txtHudMoves: $('txtHudMoves'),
+      valHudMoves: $('valHudMoves'),
+      btnPauseGame: $('btnPauseGame'),
+      txtBtnPause: $('txtBtnPause'),
+
+      txtPauseTitle: $('txtPauseTitle'),
+      txtPauseSub: $('txtPauseSub'),
+      btnResumeGame: $('btnResumeGame'),
+      txtBtnResume: $('txtBtnResume'),
+      btnRestartRound: $('btnRestartRound'),
+      txtBtnRestart: $('txtBtnRestart'),
+      btnQuitToMenu: $('btnQuitToMenu'),
+      txtBtnQuit: $('txtBtnQuit'),
+
+      txtVicTitle: $('txtVicTitle'),
+      txtVicDesc: $('txtVicDesc'),
+      txtVicMoves: $('txtVicMoves'),
+      valVicMoves: $('valVicMoves'),
+      txtVicStars: $('txtVicStars'),
+      btnVicPlayAgain: $('btnVicPlayAgain'),
+      txtBtnVicPlayAgain: $('txtBtnVicPlayAgain'),
+      btnVicHome: $('btnVicHome'),
+      txtBtnVicHome: $('txtBtnVicHome'),
+
+      txtProfileTitle: $('txtProfileTitle'),
+      txtLblPlayerName: $('txtLblPlayerName'),
+      inputPlayerName: $('inputPlayerName'),
+      txtLblFamilyCode: $('txtLblFamilyCode'),
+      inputFamilyCode: $('inputFamilyCode'),
+      txtLblRoundsPlayed: $('txtLblRoundsPlayed'),
+      valRoundsPlayed: $('valRoundsPlayed'),
+      btnSaveProfile: $('btnSaveProfile'),
+      txtBtnSaveProfile: $('txtBtnSaveProfile')
+    };
+
+    function renderLanguage() {
+      const t = I18N[STATE.lang];
+      UI.txtHeaderTitle.textContent = t.headerTitle;
+      UI.txtMenuSubtitle.textContent = t.menuSubtitle;
+      UI.txtMenuTitle.textContent = t.menuTitle;
+      UI.txtDifficultyLabel.textContent = t.diffLabel;
+      UI.txtDiffEasyTitle.textContent = t.diffEasy;
+      UI.txtDiffEasyDesc.textContent = t.diffEasyDesc;
+      UI.txtDiffMedTitle.textContent = t.diffMed;
+      UI.txtDiffMedDesc.textContent = t.diffMedDesc;
+      UI.txtDiffChalTitle.textContent = t.diffChal;
+      UI.txtDiffChalDesc.textContent = t.diffChalDesc;
+      UI.txtBtnStart.textContent = t.btnStart;
+      UI.txtBtnHowTo.textContent = t.btnHowTo;
+
+      UI.txtInstTitle.textContent = t.instTitle;
+      UI.txtInst1.textContent = t.inst1;
+      UI.txtInst2.textContent = t.inst2;
+      UI.txtInst3.textContent = t.inst3;
+      UI.txtBtnInstPlay.textContent = t.btnInstPlay;
+
+      UI.txtHudMatches.textContent = t.hudMatches;
+      UI.txtHudMoves.textContent = t.hudMoves;
+      UI.txtBtnPause.textContent = t.btnPause;
+
+      UI.txtPauseTitle.textContent = t.pauseTitle;
+      UI.txtPauseSub.textContent = t.pauseSub;
+      UI.txtBtnResume.textContent = t.btnResume;
+      UI.txtBtnRestart.textContent = t.btnRestart;
+      UI.txtBtnQuit.textContent = t.btnQuit;
+
+      UI.txtVicTitle.textContent = t.vicTitle;
+      UI.txtVicDesc.textContent = t.vicDesc;
+      UI.txtVicMoves.textContent = t.vicMoves;
+      UI.txtVicStars.textContent = t.vicStars;
+      UI.txtBtnVicPlayAgain.textContent = t.btnVicPlayAgain;
+      UI.txtBtnVicHome.textContent = t.btnVicHome;
+
+      UI.txtProfileTitle.textContent = t.profileTitle;
+      UI.txtLblPlayerName.textContent = t.lblName;
+      UI.txtLblFamilyCode.textContent = t.lblFamily;
+      UI.txtLblRoundsPlayed.textContent = t.lblRounds;
+      UI.txtBtnSaveProfile.textContent = t.btnSave;
+
+      UI.valHudMatches.textContent = `${STATE.matchedCount} / ${STATE.totalPairs}`;
+    }
+
+    function toggleLanguage() {
+      STATE.lang = STATE.lang === 'bm' ? 'en' : 'bm';
+      try { localStorage.setItem('pjk_lang', STATE.lang); } catch(e) {}
+      renderLanguage();
+    }
+
+    function updateSoundIcons() {
+      if (STATE.soundEnabled) {
+        UI.svgSoundOn.classList.remove('hidden');
+        UI.svgSoundOff.classList.add('hidden');
+      } else {
+        UI.svgSoundOn.classList.add('hidden');
+        UI.svgSoundOff.classList.remove('hidden');
+      }
+    }
+
+    function toggleSound() {
+      STATE.soundEnabled = !STATE.soundEnabled;
+      sound.enabled = STATE.soundEnabled;
+      try { localStorage.setItem('pjk_snd', STATE.soundEnabled); } catch(e) {}
+      updateSoundIcons();
+    }
+
+    function setDifficulty(diff) {
+      STATE.difficulty = diff;
+      try { localStorage.setItem('pjk_diff', diff); } catch(e) {}
+      UI.diffButtons.forEach(btn => {
+        const d = btn.dataset.diff;
+        btn.className = 'diff-choice';
+        if (d === diff) {
+          btn.classList.add('active');
+          if (d === 'medium') btn.classList.add('med');
+          if (d === 'challenge') btn.classList.add('chal');
+        }
+      });
+    }
+
+    function startNewGame() {
+      STATE.isLocked = false;
+      STATE.isPaused = false;
+      STATE.attempts = 0;
+      STATE.matchedCount = 0;
+      STATE.revealed = [];
+
+      let pairs = 3;
+      let gridClass = 'grid-easy';
+      if (STATE.difficulty === 'easy') {
+        pairs = 3;
+        gridClass = 'grid-easy';
+      } else if (STATE.difficulty === 'medium') {
+        pairs = 6;
+        gridClass = 'grid-med';
+      } else {
+        pairs = 8;
+        gridClass = 'grid-chal';
+      }
+
+      STATE.totalPairs = pairs;
+
+      const shuffledCatalog = [...ASSETS.designs].sort(() => 0.5 - Math.random());
+      const selectedDesigns = shuffledCatalog.slice(0, pairs);
+
+      const deck = [];
+      selectedDesigns.forEach((design, i) => {
+        deck.push({
+          uid: `c_${i}_shirt`,
+          designId: design.id,
+          designName: design.name,
+          type: 'shirt',
+          imageUrl: design.shirtUrl
+        });
+        deck.push({
+          uid: `c_${i}_trousers`,
+          designId: design.id,
+          designName: design.name,
+          type: 'trousers',
+          imageUrl: design.trousersUrl
+        });
+      });
+
+      for (let i = deck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [deck[i], deck[j]] = [deck[j], deck[i]];
+      }
+      STATE.cards = deck;
+
+      UI.valHudMatches.textContent = `0 / ${pairs}`;
+      UI.valHudMoves.textContent = '0';
+      UI.toastBanner.style.opacity = '0';
+
+      UI.cardsContainer.className = `cards-grid-wrap ${gridClass}`;
+      renderCardElements();
+
+      UI.screenMenu.classList.add('hidden');
+      UI.screenInstructions.classList.add('hidden');
+      UI.modalPause.classList.add('hidden');
+      UI.modalVictory.classList.add('hidden');
+      UI.screenGameplay.classList.remove('hidden');
+    }
+
+    function renderCardElements() {
+      UI.cardsContainer.innerHTML = '';
+      STATE.cards.forEach((card, index) => {
+        const cell = document.createElement('div');
+        cell.className = 'card-cell';
+
+        const cardEl = document.createElement('div');
+        cardEl.className = 'wardrobe-card';
+        cardEl.dataset.index = index;
+
+        const frontFace = document.createElement('div');
+        frontFace.className = 'card-face face-front';
+        frontFace.innerHTML = `
+          <img src="${ASSETS.cardDoorFront}" alt="Pintu Almari" onerror="this.style.display='none'">
+        `;
+
+        const backFace = document.createElement('div');
+        backFace.className = 'card-face face-back';
+        backFace.innerHTML = `
+          <img src="${ASSETS.cardDoorInside}" class="closet-interior-bg" alt="Dalam Almari" onerror="this.style.display='none'">
+          <div class="garment-img-wrap">
+            <img src="${card.imageUrl}" class="garment-img garment-${card.type}" alt="${card.designName}">
+          </div>
+        `;
+
+        cardEl.appendChild(frontFace);
+        cardEl.appendChild(backFace);
+        cell.appendChild(cardEl);
+        UI.cardsContainer.appendChild(cell);
+
+        cardEl.addEventListener('click', (e) => {
+          e.preventDefault();
+          handleCardTap(cardEl, index);
+        });
+      });
+    }
+
+    function handleCardTap(cardEl, index) {
+      if (STATE.isLocked || STATE.isPaused) return;
+      if (cardEl.classList.contains('flipped') || cardEl.classList.contains('card-matched')) return;
+
+      sound.playDoor();
+      cardEl.classList.add('flipped');
+
+      const cardData = STATE.cards[index];
+      STATE.revealed.push({ element: cardEl, data: cardData });
+
+      if (STATE.revealed.length === 2) {
+        STATE.isLocked = true;
+        STATE.attempts++;
+        UI.valHudMoves.textContent = STATE.attempts;
+
+        const first = STATE.revealed[0];
+        const second = STATE.revealed[1];
+
+        const isMatch = (first.data.designId === second.data.designId) && (first.data.type !== second.data.type);
+
+        if (isMatch) {
+          setTimeout(() => {
+            sound.playMatch();
+            first.element.classList.add('card-matched');
+            second.element.classList.add('card-matched');
+
+            showToast(true);
+            STATE.matchedCount++;
+            UI.valHudMatches.textContent = `${STATE.matchedCount} / ${STATE.totalPairs}`;
+
+            STATE.revealed = [];
+            STATE.isLocked = false;
+
+            if (STATE.matchedCount === STATE.totalPairs) {
+              setTimeout(handleRoundVictory, 650);
+            }
+          }, 450);
+
+        } else {
+          setTimeout(() => {
+            sound.playMismatch();
+            showToast(false);
+          }, 350);
+
+          setTimeout(() => {
+            first.element.classList.remove('flipped');
+            second.element.classList.remove('flipped');
+            STATE.revealed = [];
+            STATE.isLocked = false;
+          }, 1100);
+        }
+      }
+    }
+
+    function showToast(isSuccess) {
+      const list = isSuccess ? I18N[STATE.lang].feedbackPos : I18N[STATE.lang].feedbackNeg;
+      const msg = list[Math.floor(Math.random() * list.length)];
+
+      UI.toastBanner.textContent = msg;
+      UI.toastBanner.style.background = isSuccess ? '#ECFDF5' : '#FFF1F2';
+      UI.toastBanner.style.color = isSuccess ? '#065F46' : '#9F1239';
+      UI.toastBanner.style.border = isSuccess ? '1.5px solid #A7F3D0' : '1.5px solid #FECDD3';
+      UI.toastBanner.style.opacity = '1';
+
+      setTimeout(() => {
+        UI.toastBanner.style.opacity = '0';
+      }, 1000);
+    }
+
+    function handleRoundVictory() {
+      sound.playVictory();
+      STATE.roundsCompleted++;
+      try { localStorage.setItem('pjk_rounds', STATE.roundsCompleted); } catch(e) {}
+
+      UI.valVicMoves.textContent = STATE.attempts;
+      UI.valRoundsPlayed.textContent = STATE.roundsCompleted;
+      UI.modalVictory.classList.remove('hidden');
+    }
+
+    UI.btnLangToggle.addEventListener('click', toggleLanguage);
+    UI.btnSoundToggle.addEventListener('click', toggleSound);
+
+    UI.diffButtons.forEach(btn => {
+      btn.addEventListener('click', () => setDifficulty(btn.dataset.diff));
+    });
+
+    UI.btnStartGame.addEventListener('click', startNewGame);
+    UI.btnShowInstructions.addEventListener('click', () => {
+      UI.screenMenu.classList.add('hidden');
+      UI.screenInstructions.classList.remove('hidden');
+    });
+
+    UI.btnInstPlayNow.addEventListener('click', () => {
+      UI.screenInstructions.classList.add('hidden');
+      startNewGame();
+    });
+
+    UI.btnPauseGame.addEventListener('click', () => {
+      STATE.isPaused = true;
+      UI.modalPause.classList.remove('hidden');
+    });
+    UI.btnResumeGame.addEventListener('click', () => {
+      STATE.isPaused = false;
+      UI.modalPause.classList.add('hidden');
+    });
+    UI.btnRestartRound.addEventListener('click', () => {
+      UI.modalPause.classList.add('hidden');
+      startNewGame();
+    });
+    UI.btnQuitToMenu.addEventListener('click', () => {
+      UI.modalPause.classList.add('hidden');
+      UI.screenGameplay.classList.add('hidden');
+      UI.screenMenu.classList.remove('hidden');
+    });
+
+    UI.btnVicPlayAgain.addEventListener('click', () => {
+      UI.modalVictory.classList.add('hidden');
+      startNewGame();
+    });
+    UI.btnVicHome.addEventListener('click', () => {
+      UI.modalVictory.classList.add('hidden');
+      UI.screenGameplay.classList.add('hidden');
+      UI.screenMenu.classList.remove('hidden');
+    });
+
+    UI.btnProfileOpen.addEventListener('click', () => {
+      UI.inputPlayerName.value = STATE.playerName;
+      UI.inputFamilyCode.value = STATE.familyCode;
+      UI.valRoundsPlayed.textContent = STATE.roundsCompleted;
+      UI.modalProfile.classList.remove('hidden');
+    });
+    UI.btnSaveProfile.addEventListener('click', () => {
+      STATE.playerName = UI.inputPlayerName.value.trim();
+      STATE.familyCode = UI.inputFamilyCode.value.trim();
+      try {
+        localStorage.setItem('pjk_name', STATE.playerName);
+        localStorage.setItem('pjk_fam', STATE.familyCode);
+      } catch(e) {}
+      UI.modalProfile.classList.add('hidden');
+    });
+
+    // Boot App
+    setDifficulty(STATE.difficulty);
+    renderLanguage();
+    updateSoundIcons();
+  </script>
+</body>
+</html>
